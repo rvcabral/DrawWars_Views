@@ -1,0 +1,33 @@
+.btn{
+
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    color: rgba($color-black, 0.5);
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+
+    &-primary{
+
+    }
+
+    &:hover {
+        transform: translateY(3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /* x y blurr color */
+    
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+    }
+    
+      &:active{
+        outline: none;
+        transform: translateY(2px);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /* x y blurr color */
+      }
+}
