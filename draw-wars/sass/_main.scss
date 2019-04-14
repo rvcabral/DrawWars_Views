@@ -1,8 +1,10 @@
 @import './abstracts/variables';
 @import './abstracts/typography';
+@import './abstracts/mixins';
 
 @import './components/button';
 
 @import './pages/home';
+@import './pages/join';
 
 @import './base/base';
