@@ -9,7 +9,8 @@
         </div>
 
         <div class="start">
-            <button class="btn btn-primary" @click="$router.push({ path: 'join' })">Start Game!</button>
+            <span>Room code: {{roomCode}}</span>
+            <button class="btn btn-primary" @click="$router.push({ path: 'war' })">Start Game!</button>
         </div>
     </section>
 </template>
@@ -19,7 +20,8 @@ export default {
     data(){
         return{
             players: [{name:'Briceño1'},{name:'Briceño2'},{name:'Briceño3'},{name:'Briceño4'},{name:'Briceño5'},{name:'Briceño6'},{name:'Briceño7'},{name:'Briceño8'}],
-            maxPlayers: 8
+            maxPlayers: 8,
+            roomCode: 'abc123'
         }
     }
 }

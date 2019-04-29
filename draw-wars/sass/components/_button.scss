@@ -12,7 +12,7 @@
     border-radius: 2rem;
 
     &-primary{
-
+      background-color: $color-primary;
     }
 
     &:hover {
@@ -25,9 +25,9 @@
         }
     }
     
-      &:active{
-        outline: none;
-        transform: translateY(2px);
-        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /* x y blurr color */
-      }
+    &:active{
+      outline: none;
+      transform: translateY(2px);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /* x y blurr color */
+    }
 }

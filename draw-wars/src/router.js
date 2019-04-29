@@ -17,6 +17,11 @@ export default new Router({
       path: '/join',
       name: 'join',
       component: () => import(/* webpackChunkName: "join" */ './components/entry/Join.vue')
+    },
+    {
+      path: '/war',
+      name: 'war',
+      component: () => import(/* webpackChunkName: "join" */ './components/wars/Wars.vue')
     }
   ]
 })
