@@ -7,9 +7,15 @@
 <script>
 import { setInterval, clearInterval } from 'timers';
 export default {
+    props:{
+        timeCap: {
+            required: true,
+            type: Number
+        }
+    },
     data(){
         return {
-            time: 5
+            time: this.timeCap
         }
     },
     created(){
@@ -18,6 +24,7 @@ export default {
             if(this.time == 0){
                 clearInterval(timer);
                 this.$eventBus.$emit('timer-finished');
+                this.$root.showCounter = false;
             }
         },1000);
     }

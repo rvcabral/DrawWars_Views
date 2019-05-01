@@ -1,6 +1,6 @@
 <template>
     <main class="home">
-        <img src="../../assets/home.jpg" alt="">
+        <img>
         <div class="home-container">
             <h1 class="heading-primary">Draw Wars</h1>
             <button class="btn btn-primary" @click="$router.push({ path: 'join' })">New Room!</button>
@@ -10,8 +10,8 @@
 
 <script>
 export default {
-    methods: {
-        
+    created(){
+        this.$connection.start();
     }
 }
 </script>

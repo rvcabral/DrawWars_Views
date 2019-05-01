@@ -1,6 +1,6 @@
 <template>
     <section class="rules">
-        <div class="wrapper">
+        <div class="page-wrapper">
             <h1>Game Rules</h1>
             <ul>
                 <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
@@ -18,13 +18,13 @@
 export default {
     methods: {
         skip(){
-
+            this.$root.showCounter = false;
+            this.$eventBus.$emit('timer-finished');
         }
     },
     created(){
-        this.$eventBus.$on('timer-finished', () =>{
-            this.skip;
-        })
+        this.$root.countdownTime = 30;
+        this.$root.showCounter = true;
     }
 }
 </script>

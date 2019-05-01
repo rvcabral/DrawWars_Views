@@ -1,0 +1,17 @@
+.draw-time {
+    img{
+        @include imgBackground;
+        background-image: url('~@/assets/draw-time.jpg');
+    }
+
+    .container{
+        @include center-container;
+        width: max-content;
+    }
+
+    .heading-primary {
+        background-image: linear-gradient(to right, red, blue);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}

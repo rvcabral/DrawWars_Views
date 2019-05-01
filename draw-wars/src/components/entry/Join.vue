@@ -1,6 +1,6 @@
 <template>
     <section class="join">
-        <img src="../../assets/join.jpg" alt="">
+        <img>
 
         <div class="players">
             <div class="player" v-for="(player, idx) in players" :key="player + idx">
@@ -23,6 +23,14 @@ export default {
             maxPlayers: 8,
             roomCode: 'abc123'
         }
+    },
+    mounted(){
+        /* this.$connection.on("AckSession", (res) =>{
+            console.log("This is Ack Res", res);
+        });
+        this.$connection.on("NonExistingSession", (res) =>{
+            console.log("This is NonExistingSession Res", res);
+        }); */
     }
 }
 </script>
