@@ -1,0 +1,39 @@
+.war-guess{
+
+    font-size: 0;
+    text-align: center;
+
+    .draw-container{
+        
+        height: 100vh;
+        width: 80vw;
+        
+        background-image: url('~@/assets/draw-time.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: inline-block;
+        
+    }
+    
+    .guesses{
+        width: 20vw;
+        height: 100vh;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 1.6rem;
+
+        h1 {
+            margin-top: 3rem;
+            font-size: 4.5rem;
+        }
+
+        .guess-block {
+            height: 80vh;
+            border: 2px solid #505050;
+            margin: 8rem 5rem;
+            font-size: 1.6rem;
+            overflow-y: auto;
+        }
+    }
+}

@@ -18,8 +18,7 @@
 export default {
     methods: {
         skip(){
-            this.$root.showCounter = false;
-            this.$eventBus.$emit('timer-finished');
+            this.$eventBus.$emit('clear-timer');
         }
     },
     created(){

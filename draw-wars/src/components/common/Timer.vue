@@ -15,18 +15,33 @@ export default {
     },
     data(){
         return {
-            time: this.timeCap
+            time: this.timeCap,
+            gameFlow:{
+                'war-rules': 'war-draw-time',
+                'war-draw-time': 'war-guess'
+            },
+            timer: null
         }
     },
     created(){
-        const timer = setInterval(() => {
+        this.timer = setInterval(() => {
             this.time -= 1;
             if(this.time == 0){
-                clearInterval(timer);
-                this.$eventBus.$emit('timer-finished');
-                this.$root.showCounter = false;
+                clearInterval(this.timer);
+                this.advanceStage();
             }
         },1000);
+
+        this.$eventBus.$on('clear-timer', () => {
+            clearInterval(this.timer);
+            this.advanceStage();
+        });
+    },
+    methods: {
+        advanceStage(){
+            this.$root.showCounter = false;
+            this.$root.gameStage = this.gameFlow[this.$root.gameStage];
+        }
     }
 }
 </script>

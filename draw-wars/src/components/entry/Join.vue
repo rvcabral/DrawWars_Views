@@ -17,20 +17,22 @@
 
 <script>
 export default {
+    props:{
+        roomCode: {
+            required: true,
+            type: String
+        }
+    },
     data(){
         return{
             players: [{name:'Briceño1'},{name:'Briceño2'},{name:'Briceño3'},{name:'Briceño4'},{name:'Briceño5'},{name:'Briceño6'},{name:'Briceño7'},{name:'Briceño8'}],
-            maxPlayers: 8,
-            roomCode: 'abc123'
+            maxPlayers: 8
         }
     },
-    mounted(){
-        /* this.$connection.on("AckSession", (res) =>{
-            console.log("This is Ack Res", res);
+    created(){
+        this.$connection.on("NewPlayer", (res) =>{
+            console.log("This is NewPlayer Res", res);
         });
-        this.$connection.on("NonExistingSession", (res) =>{
-            console.log("This is NonExistingSession Res", res);
-        }); */
     }
 }
 </script>

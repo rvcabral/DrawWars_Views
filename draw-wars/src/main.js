@@ -37,6 +37,7 @@ new Vue({
   render: h => h(App),
   data: ({
     showCounter: false,
-    countdownTime: 0
+    countdownTime: 0,
+    gameStage: ''
   })
 }).$mount('#app')

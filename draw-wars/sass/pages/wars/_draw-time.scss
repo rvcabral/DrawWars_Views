@@ -8,10 +8,4 @@
         @include center-container;
         width: max-content;
     }
-
-    .heading-primary {
-        background-image: linear-gradient(to right, red, blue);
-        -webkit-background-clip: text;
-        color: transparent;
-    }
 }
