@@ -25,13 +25,13 @@ export default {
     },
     data(){
         return{
-            players: [{name:'Briceño1'},{name:'Briceño2'},{name:'Briceño3'},{name:'Briceño4'},{name:'Briceño5'},{name:'Briceño6'},{name:'Briceño7'},{name:'Briceño8'}],
+            players: [],
             maxPlayers: 8
         }
     },
     created(){
         this.$connection.on("NewPlayer", (res) =>{
-            console.log("This is NewPlayer Res", res);
+            this.players.push({name: res});
         });
     }
 }

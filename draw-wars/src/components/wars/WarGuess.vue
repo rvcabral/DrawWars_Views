@@ -6,7 +6,7 @@
         <div class="guesses">
             <h1 class="gradient-heading">Start your Guessing!</h1>
             <div class="guess-block">
-
+                <p></p>
             </div>
         </div>
     </section>

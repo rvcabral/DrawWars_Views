@@ -14,9 +14,8 @@ export default {
         this.$connection.start();
         this.$connection.on("AckUIClient", (res) =>{
             //TODO:
-            //eventually server will bring room code within the ack response
             //maybe guard the session in local storage to prevent accidents like refreshing page or going back!
-            this.$router.push({ name: 'join', params: {roomCode: 'tempCode123'} });
+            this.$router.push({ name: 'join', params: {roomCode: res} });
         });
     },
     methods: {
