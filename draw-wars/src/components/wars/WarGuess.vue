@@ -1,8 +1,6 @@
 <template>
     <section class="war-guess">
-        <div class="draw-container" >
-
-        </div>
+        <div class="draw-container" :style="{ 'background-image': 'url('+imgUrl+')'}"/>
         <div class="guesses">
             <h1 class="gradient-heading">Start your Guessing!</h1>
             <div class="guess-block">
@@ -13,12 +11,16 @@
 </template>
 
 <script>
-//:style="{'background-image': `url(${imgUrl})`}"
 export default {
     data(){
         return {
-            imgUrl: '~@/assets/draw-time.jpg'
+            imgUrl: ''
         }
+    },
+    created(){
+        this.$connection.on("ShowDrawing", (res) =>{
+            this.imgUrl = res;
+        });
     }
 }
 </script>

@@ -22,7 +22,7 @@ export default {
         }
     },
     created(){
-        this.$root.countdownTime = 30;
+        this.$root.countdownTime = 1;
         this.$root.showCounter = true;
     }
 }
