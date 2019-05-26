@@ -16,10 +16,6 @@ export default {
     data(){
         return {
             time: this.timeCap,
-            gameFlow:{
-                'war-rules': 'war-draw-time',
-                'war-draw-time': 'war-guess'
-            },
             timer: null
         }
     },
@@ -28,20 +24,14 @@ export default {
             this.time -= 1;
             if(this.time == 0){
                 clearInterval(this.timer);
-                this.advanceStage();
+                this.$root.showCounter = false;
             }
         },1000);
 
         this.$eventBus.$on('clear-timer', () => {
             clearInterval(this.timer);
-            this.advanceStage();
-        });
-    },
-    methods: {
-        advanceStage(){
             this.$root.showCounter = false;
-            this.$root.gameStage = this.gameFlow[this.$root.gameStage];
-        }
+        });
     }
 }
 </script>

@@ -8,8 +8,7 @@
 <script>
 export default {
     created(){
-        this.$root.countdownTime = 5;
-        this.$root.showCounter = true;
+        
     }
 }
 </script>

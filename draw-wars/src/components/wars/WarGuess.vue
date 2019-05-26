@@ -1,10 +1,14 @@
 <template>
     <section class="war-guess">
-        <div class="draw-container" :style="{ 'background-image': 'url('+imgUrl+')'}"/>
+        <div class="draw-container" >
+            <div class="drawing" :style="{ 'background-image': `url(${$root.drawUrl.drawUri})`}">
+                
+            </div>
+        </div>
         <div class="guesses">
             <h1 class="gradient-heading">Start your Guessing!</h1>
             <div class="guess-block">
-                <p></p>
+                <p v-for="(guess, index) in guesses" :key="guess + index">{{guess}}</p>
             </div>
         </div>
     </section>
@@ -14,13 +18,11 @@
 export default {
     data(){
         return {
-            imgUrl: ''
+            guesses: []
         }
     },
     created(){
-        this.$connection.on("ShowDrawing", (res) =>{
-            this.imgUrl = res;
-        });
+        this.$root.showCounter = true;
     }
 }
 </script>

@@ -10,7 +10,6 @@
 
         <div class="start">
             <span>Room code: {{roomCode}}</span>
-            <button class="btn btn-primary" @click="$router.push({ path: 'war' })">Start Game!</button>
         </div>
     </section>
 </template>
@@ -32,6 +31,11 @@ export default {
     created(){
         this.$connection.on("NewPlayer", (res) =>{
             this.players.push({name: res});
+        });
+
+        this.$connection.on("DrawThemes", (res) =>{
+            this.$root.timeout = res.timeout;
+            this.$router.push({ path: 'war'});
         });
     }
 }
