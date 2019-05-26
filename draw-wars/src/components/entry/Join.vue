@@ -34,7 +34,7 @@ export default {
         });
 
         this.$connection.on("DrawThemes", (res) =>{
-            this.$root.timeout = res.timeout;
+            this.$root.timeout = res;
             this.$router.push({ path: 'war'});
         });
     }

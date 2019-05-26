@@ -8,7 +8,9 @@
 <script>
 export default {
     created(){
-        
+        this.$eventBus.$on('timer-finished', () => {
+            this.$connection.invoke('SetTimesUp', this.$root.sessionId);
+        });
     }
 }
 </script>

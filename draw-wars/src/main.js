@@ -38,14 +38,7 @@ new Vue({
   data: ({
     showCounter: false,
     timeout: 0,
-    drawUrl: ''
-  }),
-  computed: {
-    timeoutInSeconds(){
-      const futureDate = new Date(this.timeout);
-      const currentDate = new Date();
-      const seconds = Math.floor((futureDate.getTime() - currentDate.getTime()) / 1000);
-      return seconds;
-    }
-  }
+    drawUrl: '',
+    sessionId: ''
+  })
 }).$mount('#app')

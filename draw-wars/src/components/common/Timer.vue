@@ -25,6 +25,7 @@ export default {
             if(this.time == 0){
                 clearInterval(this.timer);
                 this.$root.showCounter = false;
+                this.$eventBus.$emit('timer-finished');
             }
         },1000);
 

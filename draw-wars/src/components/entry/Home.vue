@@ -15,7 +15,8 @@ export default {
         this.$connection.on("AckUIClient", (res) =>{
             //TODO:
             //maybe guard the session in local storage to prevent accidents like refreshing page or going back!
-            this.$router.push({ name: 'join', params: {roomCode: res} });
+            this.$root.sessionId = res.sessionId;
+            this.$router.push({ name: 'join', params: {roomCode: res.sessionRoom} });
         });
     },
     methods: {
