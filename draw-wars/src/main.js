@@ -23,6 +23,7 @@ Vue.config.productionTip = false;
 /**
  * VUE INSTANCE HELPERS
  */
+//.withUrl("http://52.211.139.236/DrawWars/Server")
 Vue.prototype.$eventBus = eventBus;
 const connection = new HubConnectionBuilder()
 .withUrl("http://localhost:5000/Server")

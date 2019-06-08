@@ -18,9 +18,16 @@ export default {
     },
     created() {
         this.$root.showCounter = true;
-        this.$eventBus.$on('timer-finished', () => {
+        this.$eventBus.$on('timer-finished', this.timerFinished);
+    },
+    methods: {
+        timerFinished() {
+            console.log("Invoked: ResultsShown: ");
             this.$connection.invoke('ResultsShown', this.$root.sessionId);
-        });
+        }
+    },
+    beforeDestroy(){
+        this.$eventBus.$off('timer-finished', this.timerFinished);
     }
 }
 </script>

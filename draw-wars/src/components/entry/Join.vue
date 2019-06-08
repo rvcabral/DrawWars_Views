@@ -30,6 +30,7 @@ export default {
     },
     created(){
         this.$connection.on("NewPlayer", (res) =>{
+            console.log("newPlayer!!: ", res);
             this.players.push({name: res});
         });
 

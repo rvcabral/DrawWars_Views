@@ -26,18 +26,27 @@ export default {
     created(){
         this.$root.showCounter = true;
 
-        this.$connection.on("PlayerGuess", (res) =>{
+        this.$connection.on("PlayerGuess", this.playerGuess);
+
+        this.$eventBus.$on('timer-finished', this.timerFinished);
+    },
+    methods: {
+        playerGuess(res){
             if(res.isCorrect)
                 res.guess = "Correct!"
             if(this.guesses.length > 19)
                 this.guesses[19] = res;
             else
                 this.guesses.push(res);
-        });
-
-        this.$eventBus.$on('timer-finished', () => {
+        },
+        timerFinished() {
+            console.log("Invoked: NextGamePhase: ");
             this.$connection.invoke('NextGamePhase', this.$root.sessionId);
-        });
+        }
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('PlayerGuess', this.playerGuess);
+        this.$eventBus.$off('timer-finished', this.timerFinished);
     }
 }
 </script>
