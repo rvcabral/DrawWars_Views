@@ -25,7 +25,6 @@ Vue.use(VueChatScroll)
 /**
  * VUE INSTANCE HELPERS
  */
-//.withUrl("http://52.211.139.236/DrawWars/Server")
 Vue.prototype.$eventBus = eventBus;
 
 new Vue({

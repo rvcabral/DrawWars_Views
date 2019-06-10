@@ -34,9 +34,10 @@ export default {
         });
 
         this.$root.connection.on("SeeResults", (res) => {
-            console.log("received: SeeResults");
+            console.log("received: SeeResults", res);
             this.$eventBus.$emit('clear-timer');
-            this.$root.timeout = res;
+            this.$root.timeout = 15;
+            this.$root.scores = res;
             this.gameStage = 'war-scores';
         });
 

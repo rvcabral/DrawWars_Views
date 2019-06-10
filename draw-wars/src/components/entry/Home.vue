@@ -13,8 +13,10 @@ import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr'
 
 export default {
     created(){
+        
+        //.withUrl("http://localhost:5000/Server")
         const connection = new HubConnectionBuilder()
-        .withUrl("http://localhost:5000/Server")
+        .withUrl("http://52.211.139.236/DrawWars/Server")
         .configureLogging(LogLevel.Information)
         .build();
         this.$root.connection = connection;
