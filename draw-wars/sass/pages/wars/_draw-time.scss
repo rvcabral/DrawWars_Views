@@ -6,6 +6,8 @@
 
     .container{
         @include center-container;
-        width: max-content;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
     }
 }

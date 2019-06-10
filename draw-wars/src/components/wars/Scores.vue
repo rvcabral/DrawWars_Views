@@ -23,7 +23,7 @@ export default {
     methods: {
         timerFinished() {
             console.log("Invoked: ResultsShown: ");
-            this.$connection.invoke('ResultsShown', this.$root.sessionId);
+            this.$root.connection.invoke('ResultsShown', this.$root.sessionId);
         }
     },
     beforeDestroy(){

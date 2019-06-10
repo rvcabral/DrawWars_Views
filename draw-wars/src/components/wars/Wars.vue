@@ -25,22 +25,22 @@ export default {
     created(){
         this.$root.showCounter = true;
 
-        this.$connection.on("ShowDrawing", (res) => {
+        this.$root.connection.on("ShowDrawing", (res) => {
             console.log("received: ShowDrawing");
             this.$eventBus.$emit('clear-timer');
-            this.$root.drawUrl = res.drawUrl;
+            this.$root.drawUrl = res.drawUrl.drawUri;
             this.$root.timeout = res.timeout;
             this.gameStage = 'war-guess';
         });
 
-        this.$connection.on("SeeResults", (res) => {
+        this.$root.connection.on("SeeResults", (res) => {
             console.log("received: SeeResults");
             this.$eventBus.$emit('clear-timer');
             this.$root.timeout = res;
             this.gameStage = 'war-scores';
         });
 
-        this.$connection.on("EndOfGame", (res) => {
+        this.$root.connection.on("EndOfGame", (res) => {
             console.log("received: EndOfGame");
             this.$router.push({ name: 'home' });
         });

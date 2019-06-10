@@ -9,19 +9,27 @@
 </template>
 
 <script>
+import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr'
+
 export default {
     created(){
-        this.$connection.start();
-        this.$connection.on("AckUIClient", (res) =>{
+        const connection = new HubConnectionBuilder()
+        .withUrl("http://localhost:5000/Server")
+        .configureLogging(LogLevel.Information)
+        .build();
+        this.$root.connection = connection;
+        this.$root.connection.start();
+        this.$root.connection.on("AckUIClient", (res) =>{
             //TODO:
             //maybe guard the session in local storage to prevent accidents like refreshing page or going back!
             this.$root.sessionId = res.sessionId;
             this.$router.push({ name: 'join', params: {roomCode: res.sessionRoom} });
         });
+
     },
     methods: {
         newRoom(){
-            this.$connection
+            this.$root.connection
             .invoke("RegisterUIClient")
             .catch((err) => console.error('new room error: ', err));
         }

@@ -6,7 +6,6 @@ import eventBus from './event-bus';
 
 import '../sass/_main.scss';
 
-import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr'
 /**
  * GLOBAL COMPONENTS
  */
@@ -20,17 +19,14 @@ Vue.component('app-timer', Timer);
 
 Vue.config.productionTip = false;
 
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
+
 /**
  * VUE INSTANCE HELPERS
  */
 //.withUrl("http://52.211.139.236/DrawWars/Server")
 Vue.prototype.$eventBus = eventBus;
-const connection = new HubConnectionBuilder()
-.withUrl("http://localhost:5000/Server")
-.configureLogging(LogLevel.Information)
-.build();
-
-Vue.prototype.$connection = connection;
 
 new Vue({
   router,

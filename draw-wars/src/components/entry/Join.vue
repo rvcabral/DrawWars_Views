@@ -29,12 +29,12 @@ export default {
         }
     },
     created(){
-        this.$connection.on("NewPlayer", (res) =>{
+        this.$root.connection.on("NewPlayer", (res) =>{
             console.log("newPlayer!!: ", res);
             this.players.push({name: res});
         });
 
-        this.$connection.on("DrawThemes", (res) =>{
+        this.$root.connection.on("DrawThemes", (res) =>{
             this.$root.timeout = res;
             this.$router.push({ path: 'war'});
         });

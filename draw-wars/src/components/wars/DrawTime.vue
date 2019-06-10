@@ -15,7 +15,7 @@ export default {
     },
     created(){
         this.$eventBus.$on('timer-finished', this.timerFinished);
-        this.$connection.on("ReadyToShowDraws", this.readyToShowDraws);
+        this.$root.connection.on("ReadyToShowDraws", this.readyToShowDraws);
     },
     methods: {
         timerFinished() {
@@ -23,11 +23,11 @@ export default {
 
             if(this.drawTime){
                 console.log("Invoked: SetTimesUp: ");
-                this.$connection.invoke('SetTimesUp', this.$root.sessionId);
+                this.$root.connection.invoke('SetTimesUp', this.$root.sessionId);
             }
             else{
                 console.log("Invoked: DrawPhaseLogic: ");
-                this.$connection.invoke('DrawPhaseLogic', this.$root.sessionId);
+                this.$root.connection.invoke('DrawPhaseLogic', this.$root.sessionId);
             }
         },
         readyToShowDraws(res){
@@ -42,7 +42,7 @@ export default {
     },
     computed:{
         drawText(){
-            return this.drawTime ? 'Start Drawing!!!!' : 'Submitting drawings';
+            return this.drawTime ? 'Start Drawing!!!!' : 'Get ready to guess!';
         }
     },
     beforeDestroy(){

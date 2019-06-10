@@ -6,11 +6,12 @@
             </div>
         </div>
         <div class="guesses">
-            <h1 class="gradient-heading">Start your Guessing!</h1>
-            <div class="guess-block">
-                <p v-for="(guess, index) in guesses" :key="guess + index">
-                    {{guess.player}} - {{guess.guess}}
-                </p>
+            <h1 class="gradient-heading">Begin Guessing!</h1>
+            <div class="guess-block" v-chat-scroll="{always: true, smooth: true}">
+                <span v-for="(guess, index) in guesses" :key="guess + index">
+                    <p> {{guess.player}}: </p>
+                    <p> {{guess.guess}} </p>
+                </span>
             </div>
         </div>
     </section>
@@ -26,7 +27,7 @@ export default {
     created(){
         this.$root.showCounter = true;
 
-        this.$connection.on("PlayerGuess", this.playerGuess);
+        this.$root.connection.on("PlayerGuess", this.playerGuess);
 
         this.$eventBus.$on('timer-finished', this.timerFinished);
     },
@@ -41,7 +42,7 @@ export default {
         },
         timerFinished() {
             console.log("Invoked: NextGamePhase: ");
-            this.$connection.invoke('NextGamePhase', this.$root.sessionId);
+            this.$root.connection.invoke('NextGamePhase', this.$root.sessionId);
         }
     },
     beforeDestroy() {
