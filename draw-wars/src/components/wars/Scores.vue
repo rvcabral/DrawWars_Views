@@ -22,7 +22,7 @@ export default {
     created() {
         this.$root.showCounter = true;
         this.$eventBus.$on('timer-finished', this.timerFinished);
-        this.$eventBus.$on('NextRound', this.nextRound);
+        this.$root.connection.on('NextRound', this.nextRound);
     },
     methods: {
         timerFinished() {
