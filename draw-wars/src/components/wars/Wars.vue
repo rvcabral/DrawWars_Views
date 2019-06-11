@@ -7,6 +7,7 @@ import Rules from './Rules.vue'
 import DrawTime from './DrawTime.vue'
 import WarGuess from './WarGuess.vue'
 import Scores from './Scores.vue'
+import { setTimeout } from 'timers';
 
 export default {
     components: {
@@ -39,6 +40,26 @@ export default {
             this.$root.timeout = 15;
             this.$root.scores = res;
             this.gameStage = 'war-scores';
+        });
+
+        this.$root.connection.on("NewRound", (res) => {
+            console.log("received: NewRound", res);
+            this.$eventBus.$emit('clear-timer');
+            this.$root.timeout = 60;
+            this.gameStage = 'war-draw-time';
+            setTimeout(() => {
+                this.$root.showCounter = true;
+            }, 500);
+        });
+
+        this.$root.connection.on("DrawThemes", (res) =>{
+            console.log("received: DrawThemes", res);
+            this.$root.timeout = res;
+            this.$eventBus.$emit('clear-timer');
+            this.gameStage = 'war-draw-time';
+            setTimeout(() => {
+                this.$root.showCounter = true;
+            }, 500);
         });
 
         this.$root.connection.on("EndOfGame", (res) => {
