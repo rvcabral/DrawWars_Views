@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import eventBus from './event-bus';
+import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr'
 
 import '../sass/_main.scss';
 
@@ -25,6 +26,13 @@ Vue.use(VueChatScroll)
 /**
  * VUE INSTANCE HELPERS
  */
+const connection = new HubConnectionBuilder()
+.withUrl("http://localhost:5000/Server")
+.configureLogging(LogLevel.Information)
+.build();
+
+Vue.prototype.connection = connection;
+
 Vue.prototype.$eventBus = eventBus;
 
 new Vue({
