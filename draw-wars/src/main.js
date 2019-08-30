@@ -26,8 +26,10 @@ Vue.use(VueChatScroll)
 /**
  * VUE INSTANCE HELPERS
  */
+// .withUrl("http://localhost:5000/Server")
+
 const connection = new HubConnectionBuilder()
-.withUrl("http://localhost:5000/Server")
+.withUrl("http://52.211.139.236/DrawWars/Server")
 .configureLogging(LogLevel.Information)
 .build();
 
@@ -43,6 +45,7 @@ new Vue({
     showCounter: false,
     timeout: 0,
     drawUrl: '',
-    sessionId: ''
+    sessionId: '',
+    scores: []
   })
 }).$mount('#app')

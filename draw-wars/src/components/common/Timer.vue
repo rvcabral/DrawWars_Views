@@ -22,7 +22,7 @@ export default {
     created(){
         this.timer = setInterval(() => {
             this.time -= 1;
-            if(this.time == 0){
+            if(this.time <= 0){
                 clearInterval(this.timer);
                 this.$root.showCounter = false;
                 this.$eventBus.$emit('timer-finished');

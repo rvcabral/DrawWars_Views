@@ -10,6 +10,8 @@
 .gradient-heading {
     background-image: linear-gradient(to right, red, blue);
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 

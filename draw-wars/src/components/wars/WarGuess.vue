@@ -12,6 +12,7 @@
                     <p> {{guess.player}}: </p>
                     <p> {{guess.guess}} </p>
                 </span>
+                <h3 class="gradient-heading">{{allGuessedMessage}}</h3>
             </div>
         </div>
     </section>
@@ -21,7 +22,8 @@
 export default {
     data(){
         return {
-            guesses: []
+            guesses: [],
+            allGuessedMessage: ''
         }
     },
     created(){
@@ -30,6 +32,7 @@ export default {
         this.$root.connection.on("PlayerGuess", this.playerGuess);
 
         this.$eventBus.$on('timer-finished', this.timerFinished);
+        this.$eventBus.$on('all-correct', this.allGuessed);
     },
     methods: {
         playerGuess(res){
@@ -43,11 +46,15 @@ export default {
         timerFinished() {
             console.log("Invoked: NextGamePhase: ");
             this.$root.connection.invoke('NextGamePhase', this.$root.sessionId);
+        },
+        allGuessed(){
+            this.allGuessedMessage = 'All players got it right!'
         }
     },
     beforeDestroy() {
         this.$eventBus.$off('PlayerGuess', this.playerGuess);
         this.$eventBus.$off('timer-finished', this.timerFinished);
+        this.$eventBus.$off('all-correct', this.allGuessed);
     }
 }
 </script>

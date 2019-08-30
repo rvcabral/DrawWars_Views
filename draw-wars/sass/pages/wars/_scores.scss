@@ -1,7 +1,43 @@
 .scores {
-
     text-align: center;
     padding: 4rem;
+
+    background-color: $color-gray-light;
+
+    
+    .podium {
+        min-height: 315px;
+        position: relative;
+        
+        .podium-img {
+            @include imgBackground;
+            background-image: url('~@/assets/podium.png');
+            width: 50%;
+            opacity: 1;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        span {
+            font-size: 3rem;
+        }
+
+        .first-place{
+
+        }
+
+        .second-place{
+
+        }
+
+        .third-place{
+
+        }
+    }
+
+    img {
+        @include center-container;
+    }
 
     ul {
         font-size: 3rem;

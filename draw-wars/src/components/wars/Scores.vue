@@ -1,18 +1,18 @@
 <template>
     <section class="scores">
-        <h1 class="heading-primary gradient-heading">{{scoresHeading}}</h1>
-        <ul v-if="scoresPhase">
-            <li v-for="(score, index) in $root.scores" :key="score.username + index">
-                {{score.username}} - {{score.score}}
-            </li>
-        </ul>
+         <h1 class="heading-primary gradient-heading">{{scoresHeading}}</h1>
+        <bar-component></bar-component>
     </section>
 </template>
 
 <script>
 import { setTimeout } from 'timers';
+import Bar from '../common/BarComponent';
 
 export default {
+    components: {
+        'bar-component': Bar, 
+    },
     data() {
         return {
             scores: [],
@@ -20,7 +20,7 @@ export default {
         }
     },
     created() {
-        this.$root.showCounter = true;
+        this.$root.showCounter = false;
         this.$eventBus.$on('timer-finished', this.timerFinished);
         this.$root.connection.on('NextRound', this.nextRound);
     },
