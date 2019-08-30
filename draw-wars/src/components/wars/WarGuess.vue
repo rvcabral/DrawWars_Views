@@ -48,7 +48,7 @@ export default {
             this.$root.connection.invoke('NextGamePhase', this.$root.sessionId);
         },
         allGuessed(){
-            this.allGuessedMessage = 'All players got it right!'
+            this.allGuessedMessage = 'Submission time is over!'
         }
     },
     beforeDestroy() {

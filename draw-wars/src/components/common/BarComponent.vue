@@ -11,7 +11,7 @@
       return {
         datacollection: {
           //Data to be represented on x-axis
-          labels: this.$root.scores.map(score => score.usernam),
+          labels: this.$root.scores.map(score => score.username),
           datasets: [
             {
               label: 'Podium',

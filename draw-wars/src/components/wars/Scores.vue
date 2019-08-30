@@ -1,6 +1,6 @@
 <template>
     <section class="scores">
-         <h1 class="heading-primary gradient-heading">{{scoresHeading}}</h1>
+        <h1 class="heading-primary gradient-heading">{{scoresHeading}}</h1>
         <bar-component></bar-component>
     </section>
 </template>
@@ -20,7 +20,7 @@ export default {
         }
     },
     created() {
-        this.$root.showCounter = false;
+        this.$root.showCounter = true;
         this.$eventBus.$on('timer-finished', this.timerFinished);
         this.$root.connection.on('NextRound', this.nextRound);
     },

@@ -47,8 +47,8 @@ export default {
             },3000);
         });
 
-        this.$root.connection.on("NewRound", (res) => {
-            console.log("received: NewRound", res);
+        this.$root.connection.on("NextRound", (res) => {
+            console.log("received: NextRound", res);
             this.$eventBus.$emit('clear-timer');
             this.$root.timeout = 60;
             this.gameStage = 'war-draw-time';
